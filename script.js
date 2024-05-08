@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-function existingBooks() {
+function createBooks() {
   myLibrary.forEach(function(item) {
     let div = document.createElement('div');
     div.classList.add('books');
@@ -17,14 +17,27 @@ function existingBooks() {
     let read = document.createElement('p');
     read.textContent = item.read;
 
+    let deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('deleteButton');
+    deleteButton.addEventListener('click', function() {
+      deleteBook();
+      div.remove();
+    });
+
     div.appendChild(title);
     div.appendChild(author);
     div.appendChild(pages);
     div.appendChild(read);
+    div.appendChild(deleteButton);
 
     document.querySelector('.bookcase').appendChild(div);
   })
 };
+
+function deleteBook(index) {
+  myLibrary.splice(index, 1);
+}
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -47,4 +60,4 @@ myLibrary.push(fellowshipOfTheRing);
 myLibrary.push(twoTowers);
 myLibrary.push(aGameOfThrones);
 
-existingBooks();
+createBooks();

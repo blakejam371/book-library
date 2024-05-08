@@ -21,8 +21,12 @@ function createBooks() {
     deleteButton.textContent = 'Delete';
     deleteButton.classList.add('deleteButton');
     deleteButton.addEventListener('click', function() {
-      deleteBook();
-      div.remove();
+      if(confirm('Are you sure you want to delete?')) {
+        deleteBook();
+        div.remove();
+      } else {
+        return;
+      }
     });
 
     let readToggle = document.createElement('button');

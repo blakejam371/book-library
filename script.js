@@ -25,11 +25,23 @@ function createBooks() {
       div.remove();
     });
 
+    let readToggle = document.createElement('button');
+    readToggle.textContent = 'Read Status';
+    readToggle.classList.add('readToggleButton');
+    readToggle.addEventListener('click', () => {
+      if (read.textContent === 'read') {
+        read.textContent = 'not read';
+      } else {
+        read.textContent = 'read';
+      }
+    })
+
     div.appendChild(title);
     div.appendChild(author);
     div.appendChild(pages);
     div.appendChild(read);
     div.appendChild(deleteButton);
+    div.appendChild(readToggle);
 
     document.querySelector('.bookcase').appendChild(div);
   })

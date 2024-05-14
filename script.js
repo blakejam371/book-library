@@ -62,6 +62,16 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+let dialog = document.querySelector('dialog');
+let addNewBookButton = document.querySelector('.addNewBook');
+addNewBookButton.addEventListener('click', () => {
+  dialog.showModal();
+})
+let closeButton = document.querySelector('.closeButton');
+closeButton.addEventListener('click', () => {
+  dialog.close();
+})
+
 function addBookToLibrary() {
   // do stuff here
 

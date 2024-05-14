@@ -8,22 +8,22 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <dialog id="addNewBookDialog" open="">
+  <dialog id="addNewBookDialog">
     <div class="formHeader">
       <p>Add a new book</p>
       <button class="closeButton">&times;</button>
     </div>
     <form id="addNewBookForm" method="dialog">
-      <input type="text" placeholder="Book Name">
-      <input type="text" placeholder="Author Name">
-      <input type="text" placeholder="Number of Pages">
+      <input id="bookName" type="text" placeholder="Book Name" required>
+      <input id="authorName" type="text" placeholder="Author Name" required>
+      <input id="pageNumber" type="number" placeholder="Number of Pages" required>
       <div id="radio-container">
-        <input name="readToggle" type="radio" id="read" value="read">
+        <input name="readToggle" type="radio" id="read" value="read" required>
         <label for="read">Read</label>
-        <input name="readToggle" type="radio" id="notRead" value="notRead">
+        <input name="readToggle" type="radio" id="notRead" value="not read">
         <label for="notRead">Not Read</label>
       </div>
-      <button type="button">Add</button>
+      <button id="addToLibrary">Add</button>
     </form>
   </dialog>
   <div class="container">

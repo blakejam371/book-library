@@ -101,12 +101,7 @@ function addBookToLibrary() {
   let title = document.querySelector('#bookName').value;
   let author = document.querySelector('#authorName').value;
   let pages = document.querySelector('#pageNumber').value;
-  let read = '';
-  const checkedRadioButton = document.querySelector('input[name="readToggle"]:checked');
-  if (checkedRadioButton) {
-    read = checkedRadioButton.value;
-    checkedRadioButton.checked = false;
-  }
+  let read = document.querySelector('input[name="readToggle"]:checked').value;
 
   const newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
@@ -115,6 +110,7 @@ function addBookToLibrary() {
   document.querySelector('#bookName').value = '';
   document.querySelector('#authorName').value = '';
   document.querySelector('#pageNumber').value = '';
+  document.querySelector('input[name="readToggle"]:checked').checked = false;
 
   dialog.close();
 }
